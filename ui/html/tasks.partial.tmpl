@@ -1,0 +1,36 @@
+{{define "list"}}
+    {{if eq (len .Snippets) 0}}
+    Your task list is empty
+    {{else}}
+    <p>All Tasks</p>
+        {{range .Snippets}}
+        <div class="list-div">
+            <form class="form" method="POST" action="/delete">
+                <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+                <p class="title"><strong>{{.Title}}</strong></p><br>
+                <p class="title">Assigned: {{.Created}}</p><br>
+                <p class="title">Due date: {{.Expires}}</p>
+                <input type="hidden" name="id" value="{{.Id}}">
+                <input type="submit" name="del" value="Remove" class="input-submit-new"/>
+            </form>
+
+                <form class="form" method="POST" action="/update">
+                    <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+                    <input type="hidden" name="id" value="{{.Id}}">
+                    <input type="text" name="updateTitle" placeholder="Update title" required/>
+                    <input type="submit" class="input-submit-new"/>
+                </form>
+            </div>
+        {{end}}
+    {{end}}
+{{end}}
+{{define "errors"}}
+    <div style="width:800px; margin:0 auto;">
+        {{with .Form}}
+        <label class='error'>{{.Errors.Get "task"}}</label>
+        {{end}}
+    </div>
+{{end}}
+{{define "successMessage"}}
+<div class='flash '>{{.Flash}}</div>
+{{end}}

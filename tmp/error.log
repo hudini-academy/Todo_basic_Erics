@@ -1,0 +1,187 @@
+ERROR	2024/06/06 17:21:34 C:/hudini_training/go/forms/cmd/web/middleware.go:51: session: cache not present in request context
+goroutine 18 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x5e
+main.(*Application).serverError(0xc0000aa000, {0x714eb0, 0xc0001d4000}, {0x712d00?, 0xc0001ce1b0?})
+	C:/hudini_training/go/forms/cmd/web/helpers.go:13 +0x52
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1.1()
+	C:/hudini_training/go/forms/cmd/web/middleware.go:51 +0xd7
+panic({0x5fb560?, 0x999660?})
+	C:/Program Files/Go/src/runtime/panic.go:770 +0x132
+github.com/golangcollege/sessions.getCacheFromRequestContext(0x13?)
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:63 +0xa6
+github.com/golangcollege/sessions.(*Session).Get(0x1ec53b4a428?, 0xc0000086a8?, {0x665f6f, 0x6})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:91 +0x3c
+github.com/golangcollege/sessions.(*Session).GetInt(0x277b05?, 0x10?, {0x665f6f?, 0xc000031900?})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:210 +0x18
+main.(*Application).authenticatedUser(0xc0000aa000, 0xc0000c8000)
+	C:/hudini_training/go/forms/cmd/web/helpers.go:47 +0x34
+main.(*Application).requireAuthenticatedUser-fm.(*Application).requireAuthenticatedUser.func1({0x714d30, 0xc0000086a8}, 0xc0000c8000)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:61 +0x45
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x714d30?, 0xc0000086a8?}, 0x0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).ResponseLogger-fm.(*Application).ResponseLogger.func1({0x714eb0, 0xc0001d4000}, 0xc0000c8000)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:41 +0xa7
+net/http.HandlerFunc.ServeHTTP(0xc0000146a8?, {0x714eb0?, 0xc0001d4000?}, 0xc0000319f0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).RequestLogger-fm.(*Application).RequestLogger.func1({0x714eb0, 0xc0001d4000}, 0xc0000c8000)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:31 +0x150
+net/http.HandlerFunc.ServeHTTP(0xc0001c93b0?, {0x714eb0?, 0xc0001d4000?}, 0x664d4c?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).secureHeaders-fm.(*Application).secureHeaders.func1({0x714eb0, 0xc0001d4000}, 0xc0000c8000)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:24 +0xa8
+net/http.HandlerFunc.ServeHTTP(0x10?, {0x714eb0?, 0xc0001d4000?}, 0x28e337?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1({0x714eb0?, 0xc0001d4000?}, 0x2efcaf?)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:54 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x289139?, {0x714eb0?, 0xc0001d4000?}, 0xc000031b68?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.serverHandler.ServeHTTP({0xc000094570?}, {0x714eb0?, 0xc0001d4000?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000092090, {0x7156d8, 0xc000094480})
+	C:/Program Files/Go/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3285 +0x4b4
+ERROR	2024/06/06 17:24:51 C:/hudini_training/go/forms/cmd/web/middleware.go:51: session: cache not present in request context
+goroutine 9 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x5e
+main.(*Application).serverError(0xc0000aa000, {0x714eb0, 0xc0000ac8c0}, {0x712d00?, 0xc0000a4330?})
+	C:/hudini_training/go/forms/cmd/web/helpers.go:13 +0x52
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1.1()
+	C:/hudini_training/go/forms/cmd/web/middleware.go:51 +0xd7
+panic({0x5fb560?, 0x999660?})
+	C:/Program Files/Go/src/runtime/panic.go:770 +0x132
+github.com/golangcollege/sessions.getCacheFromRequestContext(0x13?)
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:63 +0xa6
+github.com/golangcollege/sessions.(*Session).Get(0x1ec53bc1728?, 0xc00009e210?, {0x665f6f, 0x6})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:91 +0x3c
+github.com/golangcollege/sessions.(*Session).GetInt(0x277b05?, 0x10?, {0x665f6f?, 0xc0000df900?})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:210 +0x18
+main.(*Application).authenticatedUser(0xc0000aa000, 0xc0000c8120)
+	C:/hudini_training/go/forms/cmd/web/helpers.go:47 +0x34
+main.(*Application).requireAuthenticatedUser-fm.(*Application).requireAuthenticatedUser.func1({0x714d30, 0xc00009e210}, 0xc0000c8120)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:61 +0x45
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x714d30?, 0xc00009e210?}, 0x0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).ResponseLogger-fm.(*Application).ResponseLogger.func1({0x714eb0, 0xc0000ac8c0}, 0xc0000c8120)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:41 +0xa7
+net/http.HandlerFunc.ServeHTTP(0xc00008e110?, {0x714eb0?, 0xc0000ac8c0?}, 0xc0000c59f0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).RequestLogger-fm.(*Application).RequestLogger.func1({0x714eb0, 0xc0000ac8c0}, 0xc0000c8120)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:31 +0x150
+net/http.HandlerFunc.ServeHTTP(0xc0000946f0?, {0x714eb0?, 0xc0000ac8c0?}, 0x664d4c?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).secureHeaders-fm.(*Application).secureHeaders.func1({0x714eb0, 0xc0000ac8c0}, 0xc0000c8120)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:24 +0xa8
+net/http.HandlerFunc.ServeHTTP(0x10?, {0x714eb0?, 0xc0000ac8c0?}, 0x28e337?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1({0x714eb0?, 0xc0000ac8c0?}, 0x2efcaf?)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:54 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x289139?, {0x714eb0?, 0xc0000ac8c0?}, 0xc0000c5b68?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.serverHandler.ServeHTTP({0xc000094660?}, {0x714eb0?, 0xc0000ac8c0?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0001201b0, {0x7156d8, 0xc000094480})
+	C:/Program Files/Go/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3285 +0x4b4
+ERROR	2024/06/06 17:24:53 C:/hudini_training/go/forms/cmd/web/middleware.go:51: session: cache not present in request context
+goroutine 21 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x5e
+main.(*Application).serverError(0xc0000aa000, {0x714eb0, 0xc0000acb60}, {0x712d00?, 0xc0000a4410?})
+	C:/hudini_training/go/forms/cmd/web/helpers.go:13 +0x52
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1.1()
+	C:/hudini_training/go/forms/cmd/web/middleware.go:51 +0xd7
+panic({0x5fb560?, 0x999660?})
+	C:/Program Files/Go/src/runtime/panic.go:770 +0x132
+github.com/golangcollege/sessions.getCacheFromRequestContext(0x13?)
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:63 +0xa6
+github.com/golangcollege/sessions.(*Session).Get(0x1ec53bc1728?, 0xc00009e258?, {0x665f6f, 0x6})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:91 +0x3c
+github.com/golangcollege/sessions.(*Session).GetInt(0x277b05?, 0x10?, {0x665f6f?, 0xc0000df900?})
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/cache.go:210 +0x18
+main.(*Application).authenticatedUser(0xc0000aa000, 0xc00012d9e0)
+	C:/hudini_training/go/forms/cmd/web/helpers.go:47 +0x34
+main.(*Application).requireAuthenticatedUser-fm.(*Application).requireAuthenticatedUser.func1({0x714d30, 0xc00009e258}, 0xc00012d9e0)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:61 +0x45
+net/http.HandlerFunc.ServeHTTP(0x0?, {0x714d30?, 0xc00009e258?}, 0x0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).ResponseLogger-fm.(*Application).ResponseLogger.func1({0x714eb0, 0xc0000acb60}, 0xc00012d9e0)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:41 +0xa7
+net/http.HandlerFunc.ServeHTTP(0xc00008e200?, {0x714eb0?, 0xc0000acb60?}, 0xc0000c59f0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).RequestLogger-fm.(*Application).RequestLogger.func1({0x714eb0, 0xc0000acb60}, 0xc00012d9e0)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:31 +0x150
+net/http.HandlerFunc.ServeHTTP(0xc000094870?, {0x714eb0?, 0xc0000acb60?}, 0x664d4c?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).secureHeaders-fm.(*Application).secureHeaders.func1({0x714eb0, 0xc0000acb60}, 0xc00012d9e0)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:24 +0xa8
+net/http.HandlerFunc.ServeHTTP(0x10?, {0x714eb0?, 0xc0000acb60?}, 0x28e337?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1({0x714eb0?, 0xc0000acb60?}, 0x2efcaf?)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:54 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x289139?, {0x714eb0?, 0xc0000acb60?}, 0xc0000c5b68?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.serverHandler.ServeHTTP({0xc0001c9560?}, {0x714eb0?, 0xc0000acb60?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0000922d0, {0x7156d8, 0xc000094480})
+	C:/Program Files/Go/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3285 +0x4b4
+src/net/http/server.go:2166 +0x29
+main.(*Application).secureHeaders-fm.(*Application).secureHeaders.func1({0x84e9d0, 0xc0001ae000}, 0xc00019c120)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:24 +0xa8
+net/http.HandlerFunc.ServeHTTP(0x10?, {0x84e9d0?, 0xc0001ae000?}, 0x3ce337?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1({0x84e9d0?, 0xc0001ae000?}, 0x42fcaf?)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:54 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x3c9139?, {0x84e9d0?, 0xc0001ae000?}, 0xc000031b68?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.serverHandler.ServeHTTP({0xc000162810?}, {0x84e9d0?, 0xc0001ae000?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000092090, {0x84f1f8, 0xc0000943c0})
+	C:/Program Files/Go/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3285 +0x4b4
+ERROR	2024/06/06 11:55:17 C:/hudini_training/go/forms/cmd/web/helpers.go:39: template: home.page.tmpl:30:8: executing "home.page.tmpl" at <.>: range can't iterate over {[0xc00020a190 0xc00020a1e0 0xc00020a230 0xc00020a280 0xc00020a2d0 0xc00020a320 0xc00020a370 0xc00020a3c0 0xc00020a410 0xc00020a460 0xc00020a4b0 0xc00020a500 0xc00020a550 0xc00020a5a0 0xc00020a5f0 0xc00020a640 0xc00020a690 0xc00020a6e0 0xc00020a730 0xc00020a780 0xc00020a7d0 0xc00020a820 0xc00020a870 0xc00020a8c0 0xc00020a910 0xc00020a960 0xc00020a9b0 0xc00020aa00 0xc00020aa50 0xc00020aaa0 0xc00020aaf0 0xc00020ab40 0xc00020ab90 0xc00020abe0 0xc00020ac30 0xc00020ac80 0xc00020acd0 0xc00020ad20 0xc00020ad70 0xc00020adc0 0xc00020ae10 0xc00020ae60 0xc00020aeb0] <nil> }
+goroutine 18 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x5e
+main.(*Application).serverError(0xc000094120, {0x84e880, 0xc000206400}, {0x84d340?, 0xc000063000?})
+	C:/hudini_training/go/forms/cmd/web/helpers.go:13 +0x52
+main.(*Application).render(0xc000094120, {0x84e880, 0xc000206400}, {0x7a5ebf, 0xe}, 0xc00020e3c0)
+	C:/hudini_training/go/forms/cmd/web/helpers.go:39 +0x168
+main.(*Application).home(0xc000094120, {0x84e880, 0xc000206400}, 0xc000210000)
+	C:/hudini_training/go/forms/cmd/web/handler.go:39 +0x3e6
+net/http.HandlerFunc.ServeHTTP(0xc00012bd40?, {0x84e880?, 0xc000206400?}, 0x3b7b05?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+github.com/golangcollege/sessions.(*Session).Enable-fm.(*Session).Enable.func1({0x84e850, 0xc000208138}, 0xc00012bd40)
+	C:/Users/EricsAntony/go/pkg/mod/github.com/golangcollege/sessions@v1.2.0/session.go:155 +0x14c
+net/http.HandlerFunc.ServeHTTP(0xc000096270?, {0x84e850?, 0xc000208138?}, 0xc000031928?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x84e850, 0xc000208138}, 0xc00012bd40)
+	C:/Program Files/Go/src/net/http/server.go:2683 +0x1ad
+main.(*Application).ResponseLogger-fm.(*Application).ResponseLogger.func1({0x84e9d0, 0xc00016c540}, 0xc00012bd40)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:41 +0xa7
+net/http.HandlerFunc.ServeHTTP(0xc00000aa60?, {0x84e9d0?, 0xc00016c540?}, 0xc0000319f0?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).RequestLogger-fm.(*Application).RequestLogger.func1({0x84e9d0, 0xc00016c540}, 0xc00012bd40)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:31 +0x150
+net/http.HandlerFunc.ServeHTTP(0xc000163f50?, {0x84e9d0?, 0xc00016c540?}, 0x79f2a7?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).secureHeaders-fm.(*Application).secureHeaders.func1({0x84e9d0, 0xc00016c540}, 0xc00012bd40)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:24 +0xa8
+net/http.HandlerFunc.ServeHTTP(0x10?, {0x84e9d0?, 0xc00016c540?}, 0x3ce337?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+main.(*Application).recoverPanic-fm.(*Application).recoverPanic.func1({0x84e9d0?, 0xc00016c540?}, 0x42fcaf?)
+	C:/hudini_training/go/forms/cmd/web/middleware.go:54 +0x7c
+net/http.HandlerFunc.ServeHTTP(0x3c9139?, {0x84e9d0?, 0xc00016c540?}, 0xc000031b68?)
+	C:/Program Files/Go/src/net/http/server.go:2166 +0x29
+net/http.serverHandler.ServeHTTP({0xc000162810?}, {0x84e9d0?, 0xc00016c540?}, 0x6?)
+	C:/Program Files/Go/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000092090, {0x84f1f8, 0xc0000943c0})
+	C:/Program Files/Go/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	C:/Program Files/Go/src/net/http/server.go:3285 +0x4b4

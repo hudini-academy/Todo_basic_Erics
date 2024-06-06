@@ -1,0 +1,151 @@
+<html>
+<head>
+    <title>Tasks</title>
+    <link rel="stylesheet" href='/static/css/main.css'>
+    <style>
+      /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Header styles */
+.header {
+    color: #afa3a3;
+    text-align: center;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav form {
+    display: inline-block;
+}
+
+nav button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Form container styles */
+.add-div {
+    width: 60%;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Form input styles */
+form div {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type='text'],
+form input[type='email'],
+form input[type='password'] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Error message styles */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Submit button styles */
+input[type='submit'] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type='submit']:hover {
+    background-color: #555;
+}
+
+</style>
+</head>
+<body>
+<h1 class="header">TODO LIST</h1>
+<nav>
+    <div>
+        <a href='/'>Home</a>
+        <a href='#'>Create snippet</a>
+    </div>
+    <div>
+        <a href='/user/signup'>Signup</a>
+        <a href='/user/login'>Login</a>
+        <form action='/user/logout' method='POST'>
+            <button>Logout</button>
+        </form>
+    </div>
+</nav>
+<form action='/user/signup' method='POST' novalidate>
+    <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+    {{with .Form}}
+    <div>
+        <label>Name:</label>
+        {{with .Errors.Get "name"}}
+        <label class='error'>{{.}}</label>
+        {{end}}
+        <input type='text' name='name' value='{{.Get "name"}}'>
+    </div>
+    <div>
+        <label>Email:</label>
+        {{with .Errors.Get "email"}}
+        <label class='error'>{{.}}</label>
+        {{end}}
+        <input type='email' name='email' value='{{.Get "email"}}'>
+    </div>
+    <div>
+        <label>Password:</label>
+        {{with .Errors.Get "password"}}
+        <label class='error'>{{.}}</label>
+        {{end}}
+        <input type='password' name='password'>
+    </div>
+    <div>
+        <input type='submit' value='Signup'>
+    </div>
+    {{end}}
+</form>
+
+</body>
+</html>
