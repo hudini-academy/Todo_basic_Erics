@@ -17,7 +17,7 @@ func (rw *responseWriter) Write(b []byte) (int, error) {
 	rw.body.Write(b)
 	return rw.ResponseWriter.Write(b)
 }
-
+// Middleware to set X-XSS-Protection and X-Frame-Options for the response.
 func (app *Application) secureHeaders(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("X-XSS-Protection", "1; mode=block")
@@ -26,14 +26,14 @@ func (app *Application) secureHeaders(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-
+// Request logging middleware.
 func (app *Application) RequestLogger(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		app.infolog.Printf("%s - %s %s %s", r.RemoteAddr, r.Proto, r.Method, r.URL)
 		next.ServeHTTP(w, r)
 	})
 }
-
+// Response logging middleware.
 func (app *Application) ResponseLogger(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		rw := &responseWriter{
@@ -43,7 +43,7 @@ func (app *Application) ResponseLogger(next http.Handler) http.Handler {
 		next.ServeHTTP(rw, r)
 	})
 }
-
+// Handles panics and recovers from panics.
 func (app *Application) recoverPanic(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {

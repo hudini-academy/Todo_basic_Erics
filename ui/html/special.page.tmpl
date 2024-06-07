@@ -19,24 +19,15 @@
 </style>
 </head>
 <body>
-<h1 class="header">TODO LIST</h1>
+<h1 class="header">SPECIAL TODO LIST</h1>
 <nav>
     <span>
         <a href='/home'>Home</a>
-         <a href='/special'>Special Tasks</a>
-        <form style="display: inline-block;" action='/user/logout' method='POST'>
+        <form action='/user/logout' method='POST'>
             <button>Logout</button>
         </form>
     </span>
-
 </nav>
-<div class="add-div">
-    <form method="POST" action="/addTasks">
-        <label>Add your task</label><br />
-        <textarea name="task"></textarea>
-        <input type="submit" class="add-input">
-    </form>
-</div>
 
 {{template "successMessage" .}}
 

@@ -23,12 +23,12 @@ type Config struct {
 
 // Application struct stores application-wide dependencies.
 type Application struct {
-	infolog       *log.Logger
+	infolog       *log.Logger 
 	errorlog      *log.Logger
-	config        *Config
-	todo          *mysql.TodoModel
-	templateCache map[string]*template.Template
-	session       *sessions.Session
+	config        *Config 
+	todo          *mysql.TodoModel 
+	templateCache map[string]*template.Template 
+	session       *sessions.Session	
 	users         *mysql.UserModel
 }
 
@@ -41,11 +41,13 @@ func main() {
 	flag.StringVar(&config.secretKey, "secretKey", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret Key for session storage")
 	flag.Parse()
 
+	// Open the file to log the errors.
 	f, err := os.OpenFile("./tmp/error.log", os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// Open the file to log the information messages.
 	infoFile, err := os.OpenFile("./tmp/info.log", os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		log.Fatal(err)
@@ -66,12 +68,14 @@ func main() {
 		errorLog.Println(errTemplateCaching)
 	}
 
+	// Initialize database connection.
 	db, errDB := openDB(config.Dsn)
 	if errDB != nil {
 		errorLog.Fatal(errDB)
 		log.Println(errDB)
 	}
 
+	// Initialize dependencies.
 	app := &Application{
 		errorlog:      errorLog,
 		infolog:       infoLog,

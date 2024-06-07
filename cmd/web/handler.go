@@ -38,16 +38,52 @@ func (app *Application) home(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// Display special tasks.
+func (app *Application) splTasks(w http.ResponseWriter, r *http.Request) {
+	// Fetch the special tasks list.
+	task, errGetting := app.todo.GetSpecial()
+	if errGetting != nil {
+		app.errorlog.Println(errGetting.Error())
+		app.serverError(w, errGetting)
+		log.Println(errGetting)
+		return
+	}
+
+	// Render the remplate.
+	app.render(w, r, "special.page.tmpl", &templateData{
+		Snippets: task,
+		Flash:    "",
+	})
+}
+
+// Display tag specific tasks.
+func (app *Application) showTagTask(w http.ResponseWriter, r *http.Request) {
+	// Fetch the special tasks list.
+	task, errGetting := app.todo.GetTagTasks(r.FormValue("tag"))
+	if errGetting != nil {
+		app.errorlog.Println(errGetting.Error())
+		app.serverError(w, errGetting)
+		log.Println(errGetting)
+		return
+	}
+
+	// Render the remplate.
+	app.render(w, r, "home.page.tmpl", &templateData{
+		Snippets: task,
+		Flash:    "",
+	})
+}
+
 // Add tasks for tasks application.
 func (app *Application) addTasks(w http.ResponseWriter, r *http.Request) {
 
 	// Parse the form data.
 	err := r.ParseForm()
 	if err != nil {
+		log.Println(err)
 		app.clientError(w, http.StatusBadRequest)
 		return
 	}
-
 	// Data validation.
 	form := forms.New(r.PostForm)
 	form.Required("task")
@@ -67,6 +103,37 @@ func (app *Application) addTasks(w http.ResponseWriter, r *http.Request) {
 
 	// Set a success message in the session.
 	app.session.Put(r, "flash", "Task successfully created!")
+	// Redirect to home page.
+	http.Redirect(w, r, "/home", http.StatusFound)
+}
+
+// Add tags to the task.
+func (app *Application) addTags(w http.ResponseWriter, r *http.Request) {
+	idToAddTag, _ := strconv.Atoi(r.FormValue("id")) 
+	// Parse the form data.
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+	// Data validation.
+	form := forms.New(r.PostForm)
+	form.Required("tags")
+
+	if !form.Valid() {
+		errorData = form
+		http.Redirect(w, r, "/home", http.StatusFound)
+		return
+	}
+
+	// Insert into the database.
+	_, errInsert := app.todo.InsertTag(r.FormValue("tags"), idToAddTag)
+	if errInsert != nil {
+		app.errorlog.Println(errInsert)
+		return
+	}
+
 	// Redirect to home page.
 	http.Redirect(w, r, "/home", http.StatusFound)
 }

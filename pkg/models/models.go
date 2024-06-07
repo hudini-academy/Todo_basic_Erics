@@ -10,6 +10,8 @@ type Todo struct {
 	Title   string
 	Created time.Time
 	Expires time.Time
+	Tags 	string
+	Tag []string
 }
 
 // hold the user data.

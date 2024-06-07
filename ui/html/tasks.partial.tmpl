@@ -6,20 +6,32 @@
         {{range .Snippets}}
         <div class="list-div">
             <form class="form" method="POST" action="/delete">
-                <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+
                 <p class="title"><strong>{{.Title}}</strong></p><br>
                 <p class="title">Assigned: {{.Created}}</p><br>
-                <p class="title">Due date: {{.Expires}}</p>
+                <p class="title">Due date: {{.Expires}}</p><br>
+                {{range .Tag}}
+                    {{if ne . " "}}
+                    <span class="tag"><a style="text-decoration: none; font-size: 12px;" href="/tagSection?tag={{.}}">{{.}}</a></span>
+                    {{end}}
+                {{end}}
                 <input type="hidden" name="id" value="{{.Id}}">
                 <input type="submit" name="del" value="Remove" class="input-submit-new"/>
             </form>
 
-                <form class="form" method="POST" action="/update">
-                    <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+            <div class="form">
+             <form method="POST" action="/update">
                     <input type="hidden" name="id" value="{{.Id}}">
                     <input type="text" name="updateTitle" placeholder="Update title" required/>
                     <input type="submit" class="input-submit-new"/>
                 </form>
+                <form  method="POST" action="/tags">
+                    <input type="hidden" name="id" value="{{.Id}}">
+                    <input type="text" name="tags" placeholder="Add Tags" required/>
+                    <input type="submit" class="input-submit-new"/>
+                </form>
+            </div>
+               
             </div>
         {{end}}
     {{end}}
